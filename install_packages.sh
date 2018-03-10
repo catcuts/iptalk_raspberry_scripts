@@ -8,25 +8,15 @@ if [ $? -eq 0 ]; then
   sudo apt-get remove -y pip
 fi && \
 
-cd ./packages
+cd ./packages && \
 
-# install setuptools first
-echo -e "\tsetuptools unzipped. Installing setuptools ..." && \
-  unzip -o setuptools-36.6.0 && \
-  python setuptools-36.6.0/setup.py install && \
-echo -e "\tsetuptools installed." && \
+# install pip and setuptools and wheel
+if [ ! -f ./get-pip.py ]; then
+  wget https://bootstrap.pypa.io/get-pip.py
+fi && \
+python get-pip.py && \
 
-# install pip after setuptools
-echo -e "\tinstalling pip ..." && \
-  tar -xzf pip-9.0.1.tar.gz && \
-  python pip-9.0.0/setup.py install && \
-echo -e "\tpip installed. \n\tcorrecting pip path ..." && \
-  type pip && \
-  sleep 1 && \
-  hash -r && \
-  sleep 1 && \
-echo -e "\t\tpip path corrected." && \
-
+# install dev environments
 echo -e "\tinstalling dev environments ..." && \
   for dev in python-dev libmysqld-dev libffi-dev libssl-dev
   do
@@ -37,6 +27,7 @@ echo -e "\tinstalling dev environments ..." && \
   done && \
 echo -e "\tdev environments installed" && \
 
+# install packages
 echo -e "\tinstalling packages ..." && \
   cat ./requirements.txt | while read line
   do
@@ -46,9 +37,9 @@ echo -e "\tinstalling packages ..." && \
    	if [[ $pkg =~ twisted\>\=.* ]]; then
       pip install Twisted -i http://pypi.douban.com/simple --trusted-host pypi.douban.com
    	else
-      sudo pip install --no-index --find-links=./packages $line 
+      sudo pip install --no-index --find-links=./ $line 
    	fi && \
-   	echo -e "\n\t\t\t----------" $line "installed. --------\n\t\t\t--" 
+   	echo -e "\t----------" $line "installed. ----------" 
   done && \
 echo -e "\n\t\t\t-------- final check --------\n\t\t\t" && \
 
@@ -76,6 +67,7 @@ done << EOT
 EOT
 #echo -e installed "\n\t" ${installed[@]}
 
+all_installed=1
 for r in ${requirements[@]}
 do
   #echo $r
@@ -84,8 +76,12 @@ do
     # echo -e "\t" installing ... && \
     # pip install $r && \
     # echo -e "\t" $r is installed
+    all_installed=0
   fi
 done
+if [ $all_installed -eq 1 ]; then
+  echo all packages installed.
+fi
 
 # cat /home/pi/iptalk_resources/requirements.txt | while read line
 # do

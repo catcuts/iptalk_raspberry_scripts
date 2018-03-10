@@ -1,7 +1,15 @@
 #!/usr/bin/bash
 
+CONF=/etc/mysql/my.cnf
+BKUP=/etc/mysql/my.cnf.bkup
+
 echo -e "\n\t\t\t-------- config_mysql.sh started --------\n\t\t\t" && \
-    # do some historically left operations
+    # set root's passwd
+    mysql -u root <<EOF
+        SET PASSWORD FOR 'root'@'localhost' = PASSWORD('root');
+EOF
+
+    # do some historically left operations (don't know why but better not to remove it)
     mysql -uroot -proot <<EOF
 	   use mysql;
 	   update user set host='%' where user='root' and host='localhost';
@@ -12,9 +20,14 @@ EOF
         sudo /etc/init.d/mysql stop && \
     echo -e "\tMysql stopped. Mysql configing ..." && \
 
-        # use our config (character utf8) for mysql
-        sudo mv /etc/mysql/my.cnf /etc/mysql/my.cnf.bkup && \
-        sudo cp -p ./my.cnf /etc/mysql/my.cnf && \
+        # use prefabricated config (character utf8) for mysql
+        if [ -f "$BKUP" ]; then
+            sudo cp $BKUP $CONF  # exists bkup -> recover
+        else
+            sudo cp $CONF $BKUP  # not exists bkup -> bkup
+        fi && \
+
+        sudo cp -p ./my.cnf $CONF && \
 
     # start mysql service
     echo -e "\tMysql configed. Mysql restarting ..." && \

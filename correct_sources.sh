@@ -1,7 +1,27 @@
-# correct_source.sh
+#!/usr/bin/bash
+
 echo -e "\n\t\t\t-------- correct_sources.sh started --------\n\t\t\t" && \
-    sudo cp -p /etc/apt/sources.list /etc/apt/sources_bkup.list && \
-    #echo -e "deb http://archive.raspbian.org/raspbian jessie main contrib non-free\ndeb-src http://archive.raspbian.org/raspbian jessie main contrib non-free" > /etc/apt/sources.list && \
-    sed -i "1ideb http://mirrors.aliyun.com/raspbian/raspbian/ wheezy main non-free contrib\ndeb-src http://mirrors.aliyun.com/raspbian/raspbian/ wheezy main non-free contrib" /etc/apt/sources.list && \
+    CONF=/etc/apt/sources.list
+    BKUP=/etc/apt/sources.list.bkup
+
+    if [ -f "$BKUP" ]; then
+        sudo cp $BKUP $CONF  # exists bkup -> recover
+    else
+        sudo cp $CONF $BKUP  # not exists bkup -> bkup
+    fi && \
+
+    sed -i "s/^deb\s/#deb /" /etc/apt/sources.list && \
+    sed -i "s/^deb-src\s/#deb-src /" /etc/apt/sources.list && \
+
+    sed -in "1i\
+deb http://mirrors.aliyun.com/raspbian/raspbian/ jessie main non-free contrib rpi\n\
+deb-src http://mirrors.aliyun.com/raspbian/raspbian/ jessie main non-free contrib rpi" \
+/etc/apt/sources.list && \
+    
+#     sed -in "1i\
+# deb http://mirrors.aliyun.com/raspbian/raspbian/ wheezy main non-free contrib rpi\n\
+# deb-src http://mirrors.aliyun.com/raspbian/raspbian/ wheezy main non-free contrib rpi" \
+# /etc/apt/sources.list && \
+    
     sudo apt-get update -y && \
 echo -e "\n\t\t\t-------- correct_source.sh started --------\n\t\t\t"

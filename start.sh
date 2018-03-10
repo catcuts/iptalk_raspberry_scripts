@@ -2,7 +2,7 @@
 
 DATE=$(date +%Y-%m-%d)
 TIME=$(date +%H:%M:%S)
-LOGFILE=./log/log$DATE_TIME.txt
+LOGFILE=./logs/log_$DATE_$TIME.log
 
 bash stop.sh && \
 
