@@ -4,7 +4,7 @@ DATE=$(date +%Y-%m-%d)
 TIME=$(date +%H:%M:%S)
 
 LOGFILE_CS=./logs_$DATE_$TIME/correct_sources.log
-LOGFILE_UP=./logs_$DATE_$TIME/update_packages.log
+# LOGFILE_UP=./logs_$DATE_$TIME/update_packages.log
 
 LOGFILE_IM=./logs_$DATE_$TIME/install_mysql.log
 LOGFILE_CM=./logs_$DATE_$TIME/config_mysql.log
@@ -17,7 +17,7 @@ LOGFILE_MD=./logs_$DATE_$TIME/mkdir_data.log
 
 echo -e "\n\t\t\t======== deployments started ========\n\t\t\t" && \
     bash correct_sources.sh |& tee $LOGFILE_CS && \
-    sudo apt-get update -y |& tee $LOGFILE_UP && \
+    # sudo apt-get update -y |& tee $LOGFILE_UP && \
 
     bash install_mysql.sh |& tee $LOGFILE_IM && \
     bash config_mysql.sh |& tee $LOGFILE_CM && \
