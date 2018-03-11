@@ -3,7 +3,7 @@
 halt=0
 restart=0
 
-while getopts "-hr" arg  # 选项后面的冒号表示该选项需要参数
+while getopts "hr" arg  # 选项后面的冒号表示该选项需要参数
 do
     case $arg in
         h)
@@ -15,9 +15,9 @@ do
     esac
 done
 
-pid=`pgrep -f test.py` && \
+pid=`pgrep -f iptalk.py`
 
-if [ $[`$pid >= 0`] ]; then
+if [ $pid -ge 0 ]; then
     echo "iptalk stopping ..." && \
     sudo kill -9 $pid && \
     echo "iptalk stopped."
@@ -29,3 +29,4 @@ if [[ $halt -eq 1 ]]; then
 elif [[ $restart -eq 1 ]]; then
     echo "system rebooting ..."
     sudo shutdown -r now
+fi
