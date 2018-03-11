@@ -2,8 +2,11 @@
 
 DATE=$(date +%Y-%m-%d)
 TIME=$(date +%H:%M:%S)
-LOGDIR=/home/pi/logs
-LOGFILE=$LOGDIR/log_$DATE_$TIME.log
+LOGDIR="/home/pi/logs"
+_DATE="_$DATE"
+_TIME="_$TIME"
+LOGFILE="/home/pi/logs/log$_DATE$_TIME.log"
+# LOGFILE=$LOGDIR/log_$DATE_$TIME.log
 
 bash stop.sh && \
 
