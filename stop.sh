@@ -17,7 +17,7 @@ done
 
 pid=`pgrep -f iptalk.py`
 
-if [ $pid -ge 0 ]; then
+if [ -n "$pid" ]; then
     echo "iptalk stopping ..." && \
     sudo kill -9 $pid && \
     echo "iptalk stopped."
