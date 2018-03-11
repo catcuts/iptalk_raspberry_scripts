@@ -24,4 +24,4 @@ deb-src http://mirrors.aliyun.com/raspbian/raspbian/ jessie main non-free contri
 # /etc/apt/sources.list && \
     
     sudo apt-get update -y && \
-echo -e "\n\t\t\t-------- correct_source.sh started --------\n\t\t\t"
+echo -e "\n\t\t\t-------- correct_source.sh finished --------\n\t\t\t"
