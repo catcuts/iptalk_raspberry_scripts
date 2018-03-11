@@ -9,4 +9,6 @@ else
     sudo cp $CONF $BKUP  # not exists bkup -> bkup
 fi && \
 
-sudo sed -in '/exit 0/isudo /etc/init.d/mysql restart && sudo python /home/pi/src/iptalk.py' $CONF
+#sudo sed -in 's/^exit 0/isudo /etc/init.d/mysql restart && sudo python /home/pi/src/iptalk.py' $CONF
+
+sudo cp -p ./rc.local $CONF
