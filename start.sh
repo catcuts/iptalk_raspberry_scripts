@@ -24,4 +24,11 @@ echo -e "\n\t\t\t ====== IPTALK RUNNING ======\n\
 \n\t\t\t ======   $DATE   ====== \n\t\t\t\
 \n\t\t\t ======    $TIME    ====== \n\t\t\t" && \
 
+# {  # your 'try' block
+#     wget && \
+#     bash supervior.sh
+# } || {  # your 'catch' block
+#     echo 'supervisor error'
+# }
+
 python /home/pi/src/iptalk.py |& tee -a $LOGFILE

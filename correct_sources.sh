@@ -5,9 +5,9 @@ echo -e "\n\t\t\t-------- correct_sources.sh started --------\n\t\t\t" && \
     BKUP=/etc/apt/sources.list.bkup
 
     if [ -f "$BKUP" ]; then
-        sudo cp $BKUP $CONF  # exists bkup -> recover
+        sudo cp -p $BKUP $CONF  # exists bkup -> recover
     else
-        sudo cp $CONF $BKUP  # not exists bkup -> bkup
+        sudo cp -p $CONF $BKUP  # not exists bkup -> bkup
     fi && \
 
     sed -i "s/^deb\s/#deb /" /etc/apt/sources.list && \

@@ -25,9 +25,9 @@ do
 done
 
 if [ -f "$BKUP" ]; then
-    sudo cp $BKUP $CONF  # exists bkup -> recover
+    sudo cp -p $BKUP $CONF  # exists bkup -> recover
 else
-    sudo cp $CONF $BKUP  # not exists bkup -> bkup
+    sudo cp -p $CONF $BKUP  # not exists bkup -> bkup
 fi && \
 
 echo -e "\
