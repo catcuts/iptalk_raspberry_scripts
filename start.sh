@@ -8,7 +8,11 @@ _TIME="_$TIME"
 LOGFILE="/home/pi/logs/log$_DATE$_TIME.log"
 # LOGFILE=$LOGDIR/log_$DATE_$TIME.log
 
-bash stop.sh && \
+{
+    bash ./stop.sh
+} || {
+    echo ''
+} && \
 
 if [ ! -d $LOGDIR ]; then
     mkdir -p $LOGDIR

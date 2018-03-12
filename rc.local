@@ -17,8 +17,15 @@ if [ "$_IP" ]; then
   printf "My IP address is %s\n" "$_IP"
 fi
 
+{  # your 'try' block
+    wget && \
+    bash supervior.sh
+} || {  # your 'catch' block
+    echo 'supervisor error'
+} && \
+
 sudo /etc/init.d/mysql restart && \
-sudo bash /home/pi/start.sh && \
+sudo python /home/pi/src/iptalk.py && \
 
 exit 0
 
