@@ -7,10 +7,10 @@ while getopts "hr" arg  # 选项后面的冒号表示该选项需要参数
 do
     case $arg in
         h)
-            halt=$OPTARG  # 参数存在 $OPTARG 中
+            halt=1  # 参数存在 $OPTARG 中
             ;;
         r)
-            restart=$OPTARG
+            restart=1
             ;;
     esac
 done
