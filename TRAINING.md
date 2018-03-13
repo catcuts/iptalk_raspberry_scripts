@@ -130,7 +130,7 @@ echo -e "\n\t\t\t ====== IPTALK RUNNING ======\n\
 
 python /home/pi/src/iptalk.py |& tee -a $LOGFILE
 ```
-        4) How to expand your knowledge base on RPi?  
+        6) How to expand your knowledge base on RPi?  
             —— Practices with Questioning and Asking (experenced People or Google)
             —— Some awesome websites for further learning and references
                 1>> Start guide: cn.linux.vbird.org + a linux system for practice by free hand
