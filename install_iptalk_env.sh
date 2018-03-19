@@ -34,6 +34,8 @@ LOGFILE_MD="$LOGDIR/mkdir_data.log"
 LOGFILE_AU="$LOGDIR/active_ufw.log"
 LOGFILE_EIA="$LOGDIR/enable_iptalk_autorun.log"
 
+LOGFILE_MDI="$LOGDIR/mount_disk.log"
+
 echo -e \
 "\tlogfiles:\n\
 \t\t$LOGFILE_CS\n\
@@ -46,7 +48,8 @@ echo -e \
 \t\t$LOGFILE_MD\n\
 \t\t$LOGFILE_IP\n\
 \t\t$LOGFILE_MD\n\
-\t\t$LOGFILE_EIA" && \
+\t\t$LOGFILE_EIA\n\
+\t\t$LOGFILE_MDI" && \
 
 touch \
 $LOGFILE_CS \
@@ -59,7 +62,8 @@ $LOGFILE_IP \
 $LOGFILE_MD \
 $LOGFILE_IP \
 $LOGFILE_MD \
-$LOGFILE_EIA && \
+$LOGFILE_EIA \
+$LOGFILE_MDI && \
 
 echo -e "\n\t\t\t======== deployments started ========\n\t\t\t" && \
     bash correct_sources.sh |& tee -a $LOGFILE_CS && \
@@ -76,4 +80,7 @@ echo -e "\n\t\t\t======== deployments started ========\n\t\t\t" && \
 
     bash active_ufw.sh |& tee -a $LOGFILE_AU && \
     bash enable_iptalk_autorun.sh |& tee -a $LOGFILE_EIA && \
+
+    bash mount_disk.sh |& tee -a $LOGFILE_MDI && \
+    # bash mkdir_data.sh |& tee -a $LOGFILE_MD && \
 echo -e "\n\t\t\t======== deployments finished ========\n\t\t\t"
