@@ -14,12 +14,14 @@
             2> RPi is cheap and have enough performances for using in some cases
                 (which means RPi is cost-effective in some cases)
             3> RPi is used to run iptalk for customers who don't want to afford a server
+
         2) What can a RPi do? 
             1> RPi can help learning Linux operation system
                 (if you want to learn linux, you can rent a server, the second choise is to own a RPi)
             2> RPi can act like a server (that's why we can run iptalk on it)
             3> RPi can be a meterial of DIY 
                 (if you are instresting in DIY, google it to inspire your DIY mind)
+
         3) How to use RPi? —— A quick start guide
             1> Prepare a RPi and its auxiliaries (power cable, network cable)
             2> Download an image from official website (https://www.raspberrypi.org/downloads/)
@@ -55,6 +57,7 @@
                     —— we will see in the next section how to get a quick start on shell scripts
                 8>> How to mount an external hard drive to RPi?
                     —— left as an exercise for your homework
+
         4) How to expand your knowledge base on RPi? 
             —— Practices with Questioning and Asking (experenced People or Google)
             —— Some awesome websites for further learning and references
@@ -62,17 +65,20 @@
                 2>> Search Engine: Google is always the best, Baidu is less recommended
                 3>> Technical Q&A: SegmentFault, Stack Overflow, Zhihu ...
                     (but we often access them through the searching results offerred by Google)
+
     2. Get familiar with Linux
         1) What is Linux, and why not Windows?
             1> Linux is a kind of operation system different from Windows
             2> Actually I don't have a very clear idea about why to use linux but not windows
                 (currently the reason is the work pushs me to use linux)
+
         2) What can a Linux do?
+
         3) How to use Linux? (some commands mentioned, here focus on shell scripts)
             A quick start
             1> New and edit an empty file: nano / vi hello.sh
             2> Writing header: #!/bin/bash or #!/bin/sh (latter one is more campaticable between poxis system)
-            3> Writing scripts: (simple)
+            3> Writing scripts: (simple hello-world)
 ```shell 
 #!/bin/sh
 HELLO_FILE=./hello.txt
@@ -130,6 +136,7 @@ echo -e "\n\t\t\t ====== IPTALK RUNNING ======\n\
 
 python /home/pi/src/iptalk.py |& tee -a $LOGFILE
 ```
+        
         6) How to expand your knowledge base on RPi?  
             —— Practices with Questioning and Asking (experenced People or Google)
             —— Some awesome websites for further learning and references
