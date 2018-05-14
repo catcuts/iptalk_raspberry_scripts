@@ -2,10 +2,12 @@ echo -e "\t-------- final check --------" && \
 
 # finnally check
 
+allinstalled=1
 requirements=()
 while read line
 do
   line=${line/%>=*/""}
+  line=${line/%==*/""}
   requirements+=($line)
 done << EOT
 `cat /home/pi/iptalk_resources/requirements.txt`
@@ -32,8 +34,9 @@ do
     # echo -e "\t" installing ... && \
     # pip install $r && \
     # echo -e "\t" $r is installed
-  else
-    echo $r is installed
+    $allinstalled=0
+  # else
+  #   echo $r is installed
   fi
 done
 
@@ -45,4 +48,7 @@ done
 #   then echo $line is not installed
 #   fi
 # done && \
+
+if [ $allinstalled -eq 1 ]; then echo All packages are installed.; fi
+
 echo -e "\t-------- install_packages.sh finished --------"

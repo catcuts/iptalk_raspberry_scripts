@@ -66,18 +66,22 @@ $LOGFILE_EIA \
 $LOGFILE_MDI && \
 
 echo -e "\n\t\t\t======== deployments started ========\n\t\t\t" && \
+    # this one of three to be executed in building if docker
     bash correct_sources.sh |& tee -a $LOGFILE_CS && \
     # sudo apt-get update -y |& tee -a $LOGFILE_UP && \
 
+    # not necessary if docker
     bash install_mysql.sh |& tee -a $LOGFILE_IM && \
     bash config_mysql.sh |& tee -a $LOGFILE_CM && \
 
+    # these two of three to be executed in building if docker
     bash correct_timezone.sh |& tee -a $LOGFILE_CT && \
     bash install_ffmpeg.sh |& tee -a $LOGFILE_IF && \
 
     bash install_packages.sh |& tee -a $LOGFILE_IP && \
     bash mkdir_data.sh |& tee -a $LOGFILE_MD && \
 
+    # always do on init rapsberrypi or out of docker container
     bash active_ufw.sh |& tee -a $LOGFILE_AU && \
     bash enable_iptalk_autorun.sh |& tee -a $LOGFILE_EIA && \
 
