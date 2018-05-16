@@ -16,6 +16,9 @@ echo -e \
 
 mkdir -p $LOGDIR
 
+LOGFILE_ER="$LOGDIR/enable_ssh_root.log"
+LOGFILE_CP="$LOGDIR/change_password.log"
+
 LOGFILE_CS="$LOGDIR/correct_sources.log"
 # LOGFILE_UP="$LOGDIR/update_packages.log"
 
@@ -38,6 +41,8 @@ LOGFILE_MDI="$LOGDIR/mount_disk.log"
 
 echo -e \
 "\tlogfiles:\n\
+\t\t$LOGFILE_ER\n\
+\t\t$LOGFILE_CP\n\
 \t\t$LOGFILE_CS\n\
 \t\t$LOGFILE_UP\n\
 \t\t$LOGFILE_IM\n\
@@ -52,6 +57,8 @@ echo -e \
 \t\t$LOGFILE_MDI" && \
 
 touch \
+$LOGFILE_ER \
+$LOGFILE_CP \
 $LOGFILE_CS \
 $LOGFILE_UP \
 $LOGFILE_IM \
@@ -66,20 +73,22 @@ $LOGFILE_EIA \
 $LOGFILE_MDI && \
 
 echo -e "\n\t\t\t======== deployments started ========\n\t\t\t" && \
-    # this one of three to be executed in building if docker
+    sudo cp ./start.sh /home/pi && \
+
+    bash enable_ssh_root.sh |& tee -a $LOGFILE_ER && \
+    bash change_password.sh |& tee -a $LOGFILE_CP && \
+
     bash correct_sources.sh |& tee -a $LOGFILE_CS && \
     # sudo apt-get update -y |& tee -a $LOGFILE_UP && \
 
-    # not necessary if docker
     bash install_mysql.sh |& tee -a $LOGFILE_IM && \
     bash config_mysql.sh |& tee -a $LOGFILE_CM && \
 
-    # these two of three to be executed in building if docker
     bash correct_timezone.sh |& tee -a $LOGFILE_CT && \
     bash install_ffmpeg.sh |& tee -a $LOGFILE_IF && \
 
     bash install_packages.sh |& tee -a $LOGFILE_IP && \
-    bash mkdir_data.sh |& tee -a $LOGFILE_MD && \
+    # bash mkdir_data.sh |& tee -a $LOGFILE_MD && \
 
     # always do on init rapsberrypi or out of docker container
     bash active_ufw.sh |& tee -a $LOGFILE_AU && \

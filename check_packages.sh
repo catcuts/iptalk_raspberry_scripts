@@ -34,7 +34,7 @@ do
     # echo -e "\t" installing ... && \
     # pip install $r && \
     # echo -e "\t" $r is installed
-    $allinstalled=0
+    allinstalled=0
   # else
   #   echo $r is installed
   fi

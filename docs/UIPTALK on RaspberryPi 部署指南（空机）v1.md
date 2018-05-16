@@ -1,5 +1,4 @@
-
-# UIPTALK on RaspberryPi 部署指南
+# UIPTALK on RaspberryPi 部署指南（空机） v1
 
 **目录**
 * [一、概述](### 一、概述)
