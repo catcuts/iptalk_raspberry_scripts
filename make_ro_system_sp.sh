@@ -3,7 +3,7 @@ step=1
 #↑ 停留在第几步, 该步之前已经执行完毕
 max_step=19
 
-working_dir=`readlink -f $(dirname $0)`
+base_dir=`readlink -f $(dirname $0)`
 
 # ____________________________________________________________________________
 
@@ -104,7 +104,7 @@ echo -e "[ info ] 检查硬盘 正常 ."
 echo -ne "[ info ] 复制核心文件到 /home/pi ..."
 
     for file in check_hd.sh start_iptalk_on_rpi3.sh sweep_old_iptalk_database_bkups.sh backup_iptalk_database.sh; do
-        cp -p $working_dir/$file /home/pi
+        cp -p $base_dir/$file /home/pi
         chmod +x /home/pi/$file
     done
 
@@ -333,8 +333,8 @@ step4(){
     echo -e "[ info ] 复制 mysql 数据 完毕 ."
 
     echo -e "[ info ] 复制 iptalk 资源 ..."
-        if [ -d $working_dir/src ]; then
-            copy $working_dir/src /home/pi/hd/src
+        if [ -d $base_dir/src ]; then
+            copy $base_dir/src /home/pi/hd/src
         else
             copy /home/pi/src_bkup /home/pi/hd/src
         fi
@@ -364,7 +364,7 @@ step5(){
 
         mv /etc/mysql/my.cnf /etc/mysql/my.cnf.bkup$_DATE$_TIME
 
-        cp -p $working_dir/my.cnf.out /etc/mysql/my.cnf
+        cp -p $base_dir/my.cnf.out /etc/mysql/my.cnf
 
     echo "好了 ."
 }
@@ -428,7 +428,7 @@ echo -e "好了 ."
 step8(){
     if [ "$precondition" == "winux" ]; then
 
-        iptalksql=$working_dir/iptalk_bkup_before_ro.sql
+        iptalksql=$base_dir/iptalk_bkup_before_ro.sql
 
         iptalksqlsize=`ls -l $iptalksql | awk '{print$5}'`
 
