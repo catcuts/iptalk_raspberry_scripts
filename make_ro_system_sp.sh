@@ -1,12 +1,40 @@
 #!/usr/bin/bash
 step=1
-if [ -n "$1" ]; then 
-    step=$1
-    sed -i "2s/step=.*/step=$step/" $0
-fi
-max_step=18
 #↑ 停留在第几步, 该步之前已经执行完毕
-echo -e "当前在第 $step / $max_step 步 ."
+max_step=19
+
+working_dir=`readlink -f $(dirname $0)`
+
+# ____________________________________________________________________________
+
+check_params(){
+    if [ `echo $1 $max_step | awk '{if($1>=$2 || $1<=0){printf"sb"}else{printf"ok"}}'` == "sb" ]; then
+        echo -e "\033[31m\033[01m\033[05m[ erro ]\033[0m 步数越界! 中止 ."
+        exit 1
+    else
+        echo 很正常啊
+    fi
+}
+
+precondition="local"
+if [ -n "$1" ]; then 
+    if [[ "$1" == "windows" || "$1" == "linux" ]]; then
+        precondition="winux"
+        if [ -n "$2" ]; then
+            check_params $2 
+            step=$2
+            sed -i "2s/step=.*/step=$step/" $0
+        fi
+    else
+        check_params $1
+        step=$1
+        sed -i "2s/step=.*/step=$step/" $0
+    fi
+fi
+
+echo -e "当前在第 $step / $max_step 步 . 前提: $precondition ."
+
+# ____________________________________________________________________________
 
 DATE=$(date +%Y-%m-%d)
 TIME=$(date +%H:%M:%S)
@@ -14,12 +42,14 @@ LOGDIR="/home/pi/logs"
 _DATE="_$DATE"
 _TIME="_$TIME"
 
-echo -ne "[ info ] 确认以下步骤:\n \
+if [ "$precondition" == "local" ]; then
+
+    echo -ne "[ info ] 确认以下步骤:\n \
 1. SD 卡扩容\n \
 2. bash /home/pi/src/stop.sh\n \
-3. apt-get update && apt-get upgrade\n \
+3. apt-get update\n \
 4. bash /home/pi/src/stop.sh\n \
-已完成 ? [yes/no] "
+    已按顺序完成 ? [yes/no] "
     read done_prepare
     if [ "$done_prepare" != "yes" ]; then
         echo -e "你选择了未完成($done_prepare 而非 yes) . 中止 . 确认完成以上步骤后再重试 ."
@@ -28,16 +58,17 @@ echo -ne "[ info ] 确认以下步骤:\n \
 
 # ____________________________________________________________________________
 
-echo -ne "[ info ] 检查网络 ..."
+    echo -ne "[ info ] 检查网络 ..."
 
-    ret_code=`curl -I -s --connect-timeout 5 www.baidu.com -w %{http_code} | tail -n1`
-    # ret_code maybe none so insert an x
-    if [ "$ret_code" != "200" ]; then
-        echo -e "\n\033[31m\033[01m\033[05m[ erro ]\033[0m 检查网络 异常 . 中止 ."
-        exit 1
-    fi
+        ret_code=`curl -I -s --connect-timeout 5 www.baidu.com -w %{http_code} | tail -n1`
+        # ret_code maybe none so insert an x
+        if [ "$ret_code" != "200" ]; then
+            echo -e "\n\033[31m\033[01m\033[05m[ erro ]\033[0m 检查网络 异常 . 中止 ."
+            exit 1
+        fi
 
-echo -e "正常 ."
+    echo -e "正常 ."
+fi
 
 # ____________________________________________________________________________
 
@@ -73,7 +104,7 @@ echo -e "[ info ] 检查硬盘 正常 ."
 echo -ne "[ info ] 复制核心文件到 /home/pi ..."
 
     for file in check_hd.sh start_iptalk_on_rpi3.sh sweep_old_iptalk_database_bkups.sh backup_iptalk_database.sh; do
-        cp -p ./$file /home/pi
+        cp -p $working_dir/$file /home/pi
         chmod +x /home/pi/$file
     done
 
@@ -111,8 +142,23 @@ HDUUID=`blkid $selected_hd | sed -n 's/.*UUID=\"\([^"]*\)\".*/\1/p'`
 HDTYPE=`blkid $selected_hd | sed 's/.*TYPE="\([^"]*\)".*/\1/'`
 
 # ____________________________________________________________________________
-
+# winux
 step1(){
+    echo -ne "\033[33m[ warn ]\033[0m 是否允许停止 iptalk / web 端 ? [yes/no] "
+
+        read allow_stop_iptalk
+        if [ "$allow_stop_iptalk" != "yes" ]; then
+            echo -e "你选择了不允许($allow_stop_iptalk 而非 yes) . 中止 . 确认可以停止后再试 ."
+            exit 1
+        fi
+
+    echo -ne "[ info ] 停止 iptalk 进程 ..."
+
+        ps aux | grep "iptalk" | awk '{print$2}' | xargs kill -9
+        ps aux | grep "test" | awk '{print$2}' | xargs kill -9
+
+    echo -e "完毕 ."
+
     echo -ne "[ info ] 导出 iptalk 数据库 ..."
 
         iptalksql=/home/pi/iptalk_bkup$_DATE$_TIME.sql
@@ -128,16 +174,9 @@ step1(){
     
     echo "完毕 ."
 
-    echo -e "[ info ] 停止 mysql 服务 ..."
+    echo -ne "[ info ] 停止 mysql 服务 ..."
     
         /etc/init.d/mysql stop > /dev/null
-
-    echo -e "[ info ] 停止 mysql 服务 完毕 ."
-
-    echo -ne "[ info ] 停止 iptalk 进程 ..."
-
-        ps aux | grep "iptalk" | awk '{print$2}' | xargs kill -9
-        ps aux | grep "test" | awk '{print$2}' | xargs kill -9
 
     echo -e "完毕 ."
 }
@@ -147,7 +186,7 @@ step1(){
 backup(){
     if [ -d $1_bkup ]; then
         if [ -d $1 ]; then
-            echo -e "\033[33m\033[01m\033[05m[ warn ]\033[0m 备份数据($1_bkup)已存在: "
+            echo -e "\033[33m[ warn ]\033[0m 备份数据($1_bkup)已存在: "
             ls -l $1_bkup
             echo -ne "\t删除 ? [yes/no] "
             read delete
@@ -194,7 +233,7 @@ check(){
         echo -e "对应源文件已删除 . 应该是上一次确认过了 ."
     fi
 }
-
+# winux
 step2(){
     echo -e "[ info ] 备份 mysql 数据 ..."
 
@@ -214,7 +253,7 @@ step2(){
 }
 
 # ____________________________________________________________________________
-
+# winux
 step3(){
 
     mounted=`df -h | grep $selected_hd | awk '{print$6}'`
@@ -266,7 +305,7 @@ step3(){
 
 copy(){
     if [ "`ls $2`" != "" ]; then
-        echo -e "\033[33m\033[01m\033[05m[ warn ]\033[0m 数据($2)已存在: "
+        echo -e "\033[33m[ warn ]\033[0m 数据($2)已存在: "
         ls -l $2
         echo -ne "\t删除 ? [yes/no] "
         read delete
@@ -286,7 +325,7 @@ copy(){
         echo "好了"
     fi
 }
-
+# winux
 step4(){
     echo -e "[ info ] 复制 mysql 数据 ..."
         copy /var/lib/mysql_bkup /home/pi/hd/mysql
@@ -294,7 +333,11 @@ step4(){
     echo -e "[ info ] 复制 mysql 数据 完毕 ."
 
     echo -e "[ info ] 复制 iptalk 资源 ..."
-        copy /home/pi/src_bkup /home/pi/hd/src
+        if [ -d $working_dir/src ]; then
+            copy $working_dir/src /home/pi/hd/src
+        else
+            copy /home/pi/src_bkup /home/pi/hd/src
+        fi
     echo -e "[ info ] 复制 iptalk 资源 完毕 ."
 
     echo -e "[ info ] 创建符号链接 ..."
@@ -321,7 +364,7 @@ step5(){
 
         mv /etc/mysql/my.cnf /etc/mysql/my.cnf.bkup$_DATE$_TIME
 
-        cp -p ./my.cnf.out /etc/mysql/my.cnf
+        cp -p $working_dir/my.cnf.out /etc/mysql/my.cnf
 
     echo "好了 ."
 }
@@ -381,8 +424,32 @@ echo -e "好了 ."
 }
 
 # ____________________________________________________________________________
-
+# winux
 step8(){
+    if [ "$precondition" == "winux" ]; then
+
+        iptalksql=$working_dir/iptalk_bkup_before_ro.sql
+
+        iptalksqlsize=`ls -l $iptalksql | awk '{print$5}'`
+
+        if [ "$iptalksqlsize" == "0" ]; then
+            echo -e "\033[33m[ warn ]\033[0m 没有原数据库可以导入 ."
+        else
+            echo -e "[ info ] 导入原数据库 ..."
+            mysql -uroot -proot -e 'drop database iptalk'
+            mysql -uroot -proot iptalk < $iptalksql
+            echo -e "[ info ] 导入原数据库 完毕 ."
+        fi
+    else    
+        echo -e "安装依赖 ..."
+            pip install pycrypto*
+        echo -e "安装依赖 完毕 ."
+    fi
+}
+
+# ____________________________________________________________________________
+# winux
+step9(){
     echo -e "试运行 ..."
     bash /etc/rc.local
     echo -ne "试运行 确认成功 ? [y/n] "
@@ -394,8 +461,8 @@ step8(){
 }
 
 # ____________________________________________________________________________
-
-step9(){
+# winux
+step10(){
     echo -e "[ info ] 修改 /boot/cmdline.txt ..."
 
         # original: PARTUUID=992231d4-02 instead of /dev/mmcblk0p2 
@@ -440,7 +507,7 @@ EOF
 
 # ____________________________________________________________________________
 
-step10(){
+step11(){
     echo -e "[ info ] 移除无关软件与服务 ..."
 
         apt-get remove --purge -y wolfram-engine \
@@ -459,7 +526,7 @@ step10(){
 
 # ____________________________________________________________________________
 
-step11(){
+step12(){
     echo -e "[ info ] 用 busybox 替代默认日志管理器 ..."
 
         apt-get install -y busybox-syslogd && dpkg --purge rsyslog
@@ -469,7 +536,7 @@ step11(){
 
 # ____________________________________________________________________________
 
-step12(){
+step13(){
     echo -e "[ info ] 停用关于 交换分区 和 文件系统 的检查, 并设置为 只读 ..."
 
         sed -i 's/$/& fastboot noswap ro/g' /boot/cmdline.txt
@@ -480,7 +547,7 @@ step12(){
 
 # ____________________________________________________________________________
 
-step13(){
+step14(){
     echo -e "[ info ] 移动部分系统文件到临时文件系统 开始 ..."
 
         rm -rf /var/lib/dhcp/ /var/lib/dhcpcd5 /var/run /var/spool /var/lock /etc/resolv.conf
@@ -498,7 +565,7 @@ step13(){
 
 # ____________________________________________________________________________
 
-step14(){
+step15(){
     echo -e "[ info ] 对于 Raspberry PI 3, 移动部分锁定文件到临时文件系统 ..."
 
         echo -e "[ info ] 针对 /etc/systemd/system/dhcpcd5 ..."
@@ -521,7 +588,7 @@ step14(){
 
 # ____________________________________________________________________________
 
-step15(){
+step16(){
     echo -e "[ info ] 修改 /etc/cron.hourly/fake-hwclock ..."
 
         sed -i "/fake-hwclock save/i\ \ mount -o remount,rw \/" /etc/cron.hourly/fake-hwclock
@@ -539,7 +606,7 @@ step15(){
 
 # ____________________________________________________________________________
 
-step16(){
+step17(){
     echo -e "[ info ] 移除部分启动脚本 ..."
 
         insserv -r bootlogs 
@@ -550,7 +617,7 @@ step16(){
 
 # ____________________________________________________________________________
 
-step17(){
+step18(){
     echo -ne "[ info ] 设置 dhcpcd 服务超时(20s) ..."
         echo "DefaultTimeoutStartSec=20s" >> /etc/systemd/system.conf
     echo "好了 ."
@@ -577,8 +644,8 @@ step17(){
 }
 
 # ____________________________________________________________________________
-
-step18(){
+# winux
+step19(){
     echo -ne "[ stage ] 重启 ? [yes/no] "
 
     read cmd
@@ -589,10 +656,22 @@ step18(){
     fi
 }
 
-for k in $( seq $step $max_step )
-do
-    echo -e "\n----------- 第 $step / $max_step 步 -----------"
-    step$k
-    echo -e "----------- ----------- -----------"
-    next
-done
+if [ "$precondition" == "local" ]; then
+    for k in $( seq $step $max_step )
+    do
+        echo -e "\n----------- 第 $step / $max_step 步 -----------"
+        step$k
+        echo -e "----------- ----------- -----------"
+        next
+    done
+elif [ "$precondition" == "winux" ]; then
+    for k in 1 2 3 4 8 9 10 19
+    do
+        echo -e "\n----------- 第 $step / $max_step 步 -----------"
+        step$k
+        echo -e "----------- ----------- -----------"
+        next
+    done
+fi
+
+echo -e "\033[31m\033[01m\033[05m恭喜你, 圆满完成 .\033[0m"
