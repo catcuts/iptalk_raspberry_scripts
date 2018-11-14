@@ -1,0 +1,3 @@
+[submodule "make_ro_system_for_rpi3_jessie"]
+	path = make_ro_system_for_rpi3_jessie
+	url = https://github.com/catcuts/make_ro_system_for_rpi3_jessie

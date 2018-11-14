@@ -1,0 +1,690 @@
+2018-03-13 06:49:23+0800 [ERROR] Unhandled error in Deferred:
+2018-03-13 06:49:23+0800 [ERROR] Unhandled Error
+	Traceback (most recent call last):
+	  File "/usr/lib/python2.7/threading.py", line 810, in __bootstrap_inner
+	    self.run()
+	  File "/usr/lib/python2.7/threading.py", line 763, in run
+	    self.__target(*self.__args, **self.__kwargs)
+	  File "/usr/local/lib/python2.7/dist-packages/twisted/_threads/_threadworker.py", line 46, in work
+	    task()
+	  File "/usr/local/lib/python2.7/dist-packages/twisted/_threads/_team.py", line 190, in doWork
+	    task()
+	--- <exception caught here> ---
+	  File "/usr/local/lib/python2.7/dist-packages/twisted/python/threadpool.py", line 250, in inContext
+	    result = inContext.theWork()
+	  File "/usr/local/lib/python2.7/dist-packages/twisted/python/threadpool.py", line 266, in <lambda>
+	    inContext.theWork = lambda: context.call(ctx, func, *args, **kw)
+	  File "/usr/local/lib/python2.7/dist-packages/twisted/python/context.py", line 122, in callWithContext
+	    return self.currentContext().callWithContext(ctx, func, *args, **kw)
+	  File "/usr/local/lib/python2.7/dist-packages/twisted/python/context.py", line 85, in callWithContext
+	    return func(*args,**kw)
+	  File "D:\project\safebox-iptalk\iotservice\src\devices\iptalk\db.py", line 681, in execute
+	    
+	  File "/usr/local/lib/python2.7/dist-packages/peewee.py", line 4988, in get
+	    return sq.get()
+	  File "/usr/local/lib/python2.7/dist-packages/peewee.py", line 3224, in get
+	    % self.sql())
+	devices.iptalk.dbmodel.DeviceTreeDoesNotExist: Instance matching query does not exist:
+	SQL: SELECT `t1`.`id`, `t1`.`tree_id`, `t1`.`tree_left`, `t1`.`tree_right`, `t1`.`tree_level`, `t1`.`name`, `t1`.`type`, `t1`.`targetId`, `t1`.`strategy`, `t1`.`targetInfo` FROM `devicetree` AS t1 WHERE (`t1`.`id` = %s)
+	PARAMS: [u'f0e40db70ca14b8e8be63bb361f6ee9c']
+	
+2018-03-13 06:49:27+0800 [ERROR] Unhandled error in Deferred:
+2018-03-13 06:49:27+0800 [ERROR] Unhandled Error
+	Traceback (most recent call last):
+	  File "/usr/lib/python2.7/threading.py", line 810, in __bootstrap_inner
+	    self.run()
+	  File "/usr/lib/python2.7/threading.py", line 763, in run
+	    self.__target(*self.__args, **self.__kwargs)
+	  File "/usr/local/lib/python2.7/dist-packages/twisted/_threads/_threadworker.py", line 46, in work
+	    task()
+	  File "/usr/local/lib/python2.7/dist-packages/twisted/_threads/_team.py", line 190, in doWork
+	    task()
+	--- <exception caught here> ---
+	  File "/usr/local/lib/python2.7/dist-packages/twisted/python/threadpool.py", line 250, in inContext
+	    result = inContext.theWork()
+	  File "/usr/local/lib/python2.7/dist-packages/twisted/python/threadpool.py", line 266, in <lambda>
+	    inContext.theWork = lambda: context.call(ctx, func, *args, **kw)
+	  File "/usr/local/lib/python2.7/dist-packages/twisted/python/context.py", line 122, in callWithContext
+	    return self.currentContext().callWithContext(ctx, func, *args, **kw)
+	  File "/usr/local/lib/python2.7/dist-packages/twisted/python/context.py", line 85, in callWithContext
+	    return func(*args,**kw)
+	  File "D:\project\safebox-iptalk\iotservice\src\devices\iptalk\db.py", line 681, in execute
+	    
+	  File "/usr/local/lib/python2.7/dist-packages/peewee.py", line 4988, in get
+	    return sq.get()
+	  File "/usr/local/lib/python2.7/dist-packages/peewee.py", line 3224, in get
+	    % self.sql())
+	devices.iptalk.dbmodel.DeviceTreeDoesNotExist: Instance matching query does not exist:
+	SQL: SELECT `t1`.`id`, `t1`.`tree_id`, `t1`.`tree_left`, `t1`.`tree_right`, `t1`.`tree_level`, `t1`.`name`, `t1`.`type`, `t1`.`targetId`, `t1`.`strategy`, `t1`.`targetInfo` FROM `devicetree` AS t1 WHERE (`t1`.`id` = %s)
+	PARAMS: [u'f0e40db70ca14b8e8be63bb361f6ee9c']
+	
+2018-03-13 06:49:32+0800 [ERROR] Unhandled error in Deferred:
+2018-03-13 06:49:32+0800 [ERROR] Unhandled Error
+	Traceback (most recent call last):
+	  File "/usr/lib/python2.7/threading.py", line 810, in __bootstrap_inner
+	    self.run()
+	  File "/usr/lib/python2.7/threading.py", line 763, in run
+	    self.__target(*self.__args, **self.__kwargs)
+	  File "/usr/local/lib/python2.7/dist-packages/twisted/_threads/_threadworker.py", line 46, in work
+	    task()
+	  File "/usr/local/lib/python2.7/dist-packages/twisted/_threads/_team.py", line 190, in doWork
+	    task()
+	--- <exception caught here> ---
+	  File "/usr/local/lib/python2.7/dist-packages/twisted/python/threadpool.py", line 250, in inContext
+	    result = inContext.theWork()
+	  File "/usr/local/lib/python2.7/dist-packages/twisted/python/threadpool.py", line 266, in <lambda>
+	    inContext.theWork = lambda: context.call(ctx, func, *args, **kw)
+	  File "/usr/local/lib/python2.7/dist-packages/twisted/python/context.py", line 122, in callWithContext
+	    return self.currentContext().callWithContext(ctx, func, *args, **kw)
+	  File "/usr/local/lib/python2.7/dist-packages/twisted/python/context.py", line 85, in callWithContext
+	    return func(*args,**kw)
+	  File "D:\project\safebox-iptalk\iotservice\src\devices\iptalk\db.py", line 681, in execute
+	    
+	  File "/usr/local/lib/python2.7/dist-packages/peewee.py", line 4988, in get
+	    return sq.get()
+	  File "/usr/local/lib/python2.7/dist-packages/peewee.py", line 3224, in get
+	    % self.sql())
+	devices.iptalk.dbmodel.DeviceTreeDoesNotExist: Instance matching query does not exist:
+	SQL: SELECT `t1`.`id`, `t1`.`tree_id`, `t1`.`tree_left`, `t1`.`tree_right`, `t1`.`tree_level`, `t1`.`name`, `t1`.`type`, `t1`.`targetId`, `t1`.`strategy`, `t1`.`targetInfo` FROM `devicetree` AS t1 WHERE (`t1`.`id` = %s)
+	PARAMS: [u'f0e40db70ca14b8e8be63bb361f6ee9c']
+	
+2018-03-13 06:59:58+0800 [ERROR] Unhandled error in Deferred:
+2018-03-13 06:59:58+0800 [ERROR] Unhandled Error
+	Traceback (most recent call last):
+	  File "/usr/lib/python2.7/threading.py", line 810, in __bootstrap_inner
+	    self.run()
+	  File "/usr/lib/python2.7/threading.py", line 763, in run
+	    self.__target(*self.__args, **self.__kwargs)
+	  File "/usr/local/lib/python2.7/dist-packages/twisted/_threads/_threadworker.py", line 46, in work
+	    task()
+	  File "/usr/local/lib/python2.7/dist-packages/twisted/_threads/_team.py", line 190, in doWork
+	    task()
+	--- <exception caught here> ---
+	  File "/usr/local/lib/python2.7/dist-packages/twisted/python/threadpool.py", line 250, in inContext
+	    result = inContext.theWork()
+	  File "/usr/local/lib/python2.7/dist-packages/twisted/python/threadpool.py", line 266, in <lambda>
+	    inContext.theWork = lambda: context.call(ctx, func, *args, **kw)
+	  File "/usr/local/lib/python2.7/dist-packages/twisted/python/context.py", line 122, in callWithContext
+	    return self.currentContext().callWithContext(ctx, func, *args, **kw)
+	  File "/usr/local/lib/python2.7/dist-packages/twisted/python/context.py", line 85, in callWithContext
+	    return func(*args,**kw)
+	  File "D:\project\safebox-iptalk\iotservice\src\devices\iptalk\db.py", line 450, in execute
+	    
+	  File "/usr/local/lib/python2.7/dist-packages/peewee.py", line 3281, in __iter__
+	    return iter(self.execute())
+	  File "/usr/local/lib/python2.7/dist-packages/peewee.py", line 3274, in execute
+	    self._qr = ResultWrapper(model_class, self._execute(), query_meta)
+	  File "/usr/local/lib/python2.7/dist-packages/peewee.py", line 2939, in _execute
+	    return self.database.execute_sql(sql, params, self.require_commit)
+	  File "/usr/local/lib/python2.7/dist-packages/playhouse/shortcuts.py", line 218, in execute_sql
+	    self.commit()
+	  File "/usr/local/lib/python2.7/dist-packages/peewee.py", line 3656, in __exit__
+	    reraise(new_type, new_type(*exc_args), traceback)
+	  File "/usr/local/lib/python2.7/dist-packages/playhouse/shortcuts.py", line 216, in execute_sql
+	    cursor.execute(sql, params or ())
+	  File "/usr/local/lib/python2.7/dist-packages/MySQLdb/cursors.py", line 205, in execute
+	    self.errorhandler(self, exc, value)
+	  File "/usr/local/lib/python2.7/dist-packages/MySQLdb/connections.py", line 36, in defaulterrorhandler
+	    raise errorclass, errorvalue
+	peewee.OperationalError: (1054, "Unknown column 't1.CallTimeStamp' in 'field list'")
+	
+2018-03-13 07:00:01+0800 [ERROR] Unhandled error in Deferred:
+2018-03-13 07:00:01+0800 [ERROR] Unhandled Error
+	Traceback (most recent call last):
+	  File "/usr/lib/python2.7/threading.py", line 810, in __bootstrap_inner
+	    self.run()
+	  File "/usr/lib/python2.7/threading.py", line 763, in run
+	    self.__target(*self.__args, **self.__kwargs)
+	  File "/usr/local/lib/python2.7/dist-packages/twisted/_threads/_threadworker.py", line 46, in work
+	    task()
+	  File "/usr/local/lib/python2.7/dist-packages/twisted/_threads/_team.py", line 190, in doWork
+	    task()
+	--- <exception caught here> ---
+	  File "/usr/local/lib/python2.7/dist-packages/twisted/python/threadpool.py", line 250, in inContext
+	    result = inContext.theWork()
+	  File "/usr/local/lib/python2.7/dist-packages/twisted/python/threadpool.py", line 266, in <lambda>
+	    inContext.theWork = lambda: context.call(ctx, func, *args, **kw)
+	  File "/usr/local/lib/python2.7/dist-packages/twisted/python/context.py", line 122, in callWithContext
+	    return self.currentContext().callWithContext(ctx, func, *args, **kw)
+	  File "/usr/local/lib/python2.7/dist-packages/twisted/python/context.py", line 85, in callWithContext
+	    return func(*args,**kw)
+	  File "D:\project\safebox-iptalk\iotservice\src\devices\iptalk\db.py", line 450, in execute
+	    
+	  File "/usr/local/lib/python2.7/dist-packages/peewee.py", line 3281, in __iter__
+	    return iter(self.execute())
+	  File "/usr/local/lib/python2.7/dist-packages/peewee.py", line 3274, in execute
+	    self._qr = ResultWrapper(model_class, self._execute(), query_meta)
+	  File "/usr/local/lib/python2.7/dist-packages/peewee.py", line 2939, in _execute
+	    return self.database.execute_sql(sql, params, self.require_commit)
+	  File "/usr/local/lib/python2.7/dist-packages/playhouse/shortcuts.py", line 218, in execute_sql
+	    self.commit()
+	  File "/usr/local/lib/python2.7/dist-packages/peewee.py", line 3656, in __exit__
+	    reraise(new_type, new_type(*exc_args), traceback)
+	  File "/usr/local/lib/python2.7/dist-packages/playhouse/shortcuts.py", line 216, in execute_sql
+	    cursor.execute(sql, params or ())
+	  File "/usr/local/lib/python2.7/dist-packages/MySQLdb/cursors.py", line 205, in execute
+	    self.errorhandler(self, exc, value)
+	  File "/usr/local/lib/python2.7/dist-packages/MySQLdb/connections.py", line 36, in defaulterrorhandler
+	    raise errorclass, errorvalue
+	peewee.OperationalError: (1054, "Unknown column 't1.CallTimeStamp' in 'field list'")
+	
+2018-03-13 07:00:39+0800 [ERROR] Unhandled error in Deferred:
+2018-03-13 07:00:39+0800 [ERROR] Unhandled Error
+	Traceback (most recent call last):
+	  File "/usr/lib/python2.7/threading.py", line 810, in __bootstrap_inner
+	    self.run()
+	  File "/usr/lib/python2.7/threading.py", line 763, in run
+	    self.__target(*self.__args, **self.__kwargs)
+	  File "/usr/local/lib/python2.7/dist-packages/twisted/_threads/_threadworker.py", line 46, in work
+	    task()
+	  File "/usr/local/lib/python2.7/dist-packages/twisted/_threads/_team.py", line 190, in doWork
+	    task()
+	--- <exception caught here> ---
+	  File "/usr/local/lib/python2.7/dist-packages/twisted/python/threadpool.py", line 250, in inContext
+	    result = inContext.theWork()
+	  File "/usr/local/lib/python2.7/dist-packages/twisted/python/threadpool.py", line 266, in <lambda>
+	    inContext.theWork = lambda: context.call(ctx, func, *args, **kw)
+	  File "/usr/local/lib/python2.7/dist-packages/twisted/python/context.py", line 122, in callWithContext
+	    return self.currentContext().callWithContext(ctx, func, *args, **kw)
+	  File "/usr/local/lib/python2.7/dist-packages/twisted/python/context.py", line 85, in callWithContext
+	    return func(*args,**kw)
+	  File "D:\project\safebox-iptalk\iotservice\src\devices\iptalk\db.py", line 450, in execute
+	    
+	  File "/usr/local/lib/python2.7/dist-packages/peewee.py", line 3281, in __iter__
+	    return iter(self.execute())
+	  File "/usr/local/lib/python2.7/dist-packages/peewee.py", line 3274, in execute
+	    self._qr = ResultWrapper(model_class, self._execute(), query_meta)
+	  File "/usr/local/lib/python2.7/dist-packages/peewee.py", line 2939, in _execute
+	    return self.database.execute_sql(sql, params, self.require_commit)
+	  File "/usr/local/lib/python2.7/dist-packages/playhouse/shortcuts.py", line 218, in execute_sql
+	    self.commit()
+	  File "/usr/local/lib/python2.7/dist-packages/peewee.py", line 3656, in __exit__
+	    reraise(new_type, new_type(*exc_args), traceback)
+	  File "/usr/local/lib/python2.7/dist-packages/playhouse/shortcuts.py", line 216, in execute_sql
+	    cursor.execute(sql, params or ())
+	  File "/usr/local/lib/python2.7/dist-packages/MySQLdb/cursors.py", line 205, in execute
+	    self.errorhandler(self, exc, value)
+	  File "/usr/local/lib/python2.7/dist-packages/MySQLdb/connections.py", line 36, in defaulterrorhandler
+	    raise errorclass, errorvalue
+	peewee.OperationalError: (1054, "Unknown column 't1.CallTimeStamp' in 'field list'")
+	
+2018-03-13 07:01:05+0800 [ERROR] Unhandled error in Deferred:
+2018-03-13 07:01:05+0800 [ERROR] Unhandled Error
+	Traceback (most recent call last):
+	  File "/usr/lib/python2.7/threading.py", line 810, in __bootstrap_inner
+	    self.run()
+	  File "/usr/lib/python2.7/threading.py", line 763, in run
+	    self.__target(*self.__args, **self.__kwargs)
+	  File "/usr/local/lib/python2.7/dist-packages/twisted/_threads/_threadworker.py", line 46, in work
+	    task()
+	  File "/usr/local/lib/python2.7/dist-packages/twisted/_threads/_team.py", line 190, in doWork
+	    task()
+	--- <exception caught here> ---
+	  File "/usr/local/lib/python2.7/dist-packages/twisted/python/threadpool.py", line 250, in inContext
+	    result = inContext.theWork()
+	  File "/usr/local/lib/python2.7/dist-packages/twisted/python/threadpool.py", line 266, in <lambda>
+	    inContext.theWork = lambda: context.call(ctx, func, *args, **kw)
+	  File "/usr/local/lib/python2.7/dist-packages/twisted/python/context.py", line 122, in callWithContext
+	    return self.currentContext().callWithContext(ctx, func, *args, **kw)
+	  File "/usr/local/lib/python2.7/dist-packages/twisted/python/context.py", line 85, in callWithContext
+	    return func(*args,**kw)
+	  File "D:\project\safebox-iptalk\iotservice\src\devices\iptalk\db.py", line 450, in execute
+	    
+	  File "/usr/local/lib/python2.7/dist-packages/peewee.py", line 3281, in __iter__
+	    return iter(self.execute())
+	  File "/usr/local/lib/python2.7/dist-packages/peewee.py", line 3274, in execute
+	    self._qr = ResultWrapper(model_class, self._execute(), query_meta)
+	  File "/usr/local/lib/python2.7/dist-packages/peewee.py", line 2939, in _execute
+	    return self.database.execute_sql(sql, params, self.require_commit)
+	  File "/usr/local/lib/python2.7/dist-packages/playhouse/shortcuts.py", line 218, in execute_sql
+	    self.commit()
+	  File "/usr/local/lib/python2.7/dist-packages/peewee.py", line 3656, in __exit__
+	    reraise(new_type, new_type(*exc_args), traceback)
+	  File "/usr/local/lib/python2.7/dist-packages/playhouse/shortcuts.py", line 216, in execute_sql
+	    cursor.execute(sql, params or ())
+	  File "/usr/local/lib/python2.7/dist-packages/MySQLdb/cursors.py", line 205, in execute
+	    self.errorhandler(self, exc, value)
+	  File "/usr/local/lib/python2.7/dist-packages/MySQLdb/connections.py", line 36, in defaulterrorhandler
+	    raise errorclass, errorvalue
+	peewee.OperationalError: (1054, "Unknown column 't1.CallTimeStamp' in 'field list'")
+	
+2018-03-13 07:01:07+0800 [ERROR] Unhandled error in Deferred:
+2018-03-13 07:01:07+0800 [ERROR] Unhandled Error
+	Traceback (most recent call last):
+	  File "/usr/lib/python2.7/threading.py", line 810, in __bootstrap_inner
+	    self.run()
+	  File "/usr/lib/python2.7/threading.py", line 763, in run
+	    self.__target(*self.__args, **self.__kwargs)
+	  File "/usr/local/lib/python2.7/dist-packages/twisted/_threads/_threadworker.py", line 46, in work
+	    task()
+	  File "/usr/local/lib/python2.7/dist-packages/twisted/_threads/_team.py", line 190, in doWork
+	    task()
+	--- <exception caught here> ---
+	  File "/usr/local/lib/python2.7/dist-packages/twisted/python/threadpool.py", line 250, in inContext
+	    result = inContext.theWork()
+	  File "/usr/local/lib/python2.7/dist-packages/twisted/python/threadpool.py", line 266, in <lambda>
+	    inContext.theWork = lambda: context.call(ctx, func, *args, **kw)
+	  File "/usr/local/lib/python2.7/dist-packages/twisted/python/context.py", line 122, in callWithContext
+	    return self.currentContext().callWithContext(ctx, func, *args, **kw)
+	  File "/usr/local/lib/python2.7/dist-packages/twisted/python/context.py", line 85, in callWithContext
+	    return func(*args,**kw)
+	  File "D:\project\safebox-iptalk\iotservice\src\devices\iptalk\db.py", line 450, in execute
+	    
+	  File "/usr/local/lib/python2.7/dist-packages/peewee.py", line 3281, in __iter__
+	    return iter(self.execute())
+	  File "/usr/local/lib/python2.7/dist-packages/peewee.py", line 3274, in execute
+	    self._qr = ResultWrapper(model_class, self._execute(), query_meta)
+	  File "/usr/local/lib/python2.7/dist-packages/peewee.py", line 2939, in _execute
+	    return self.database.execute_sql(sql, params, self.require_commit)
+	  File "/usr/local/lib/python2.7/dist-packages/playhouse/shortcuts.py", line 218, in execute_sql
+	    self.commit()
+	  File "/usr/local/lib/python2.7/dist-packages/peewee.py", line 3656, in __exit__
+	    reraise(new_type, new_type(*exc_args), traceback)
+	  File "/usr/local/lib/python2.7/dist-packages/playhouse/shortcuts.py", line 216, in execute_sql
+	    cursor.execute(sql, params or ())
+	  File "/usr/local/lib/python2.7/dist-packages/MySQLdb/cursors.py", line 205, in execute
+	    self.errorhandler(self, exc, value)
+	  File "/usr/local/lib/python2.7/dist-packages/MySQLdb/connections.py", line 36, in defaulterrorhandler
+	    raise errorclass, errorvalue
+	peewee.OperationalError: (1054, "Unknown column 't1.CallTimeStamp' in 'field list'")
+	
+2018-03-13 07:01:11+0800 [ERROR] Unhandled error in Deferred:
+2018-03-13 07:01:11+0800 [ERROR] Unhandled Error
+	Traceback (most recent call last):
+	  File "/usr/lib/python2.7/threading.py", line 810, in __bootstrap_inner
+	    self.run()
+	  File "/usr/lib/python2.7/threading.py", line 763, in run
+	    self.__target(*self.__args, **self.__kwargs)
+	  File "/usr/local/lib/python2.7/dist-packages/twisted/_threads/_threadworker.py", line 46, in work
+	    task()
+	  File "/usr/local/lib/python2.7/dist-packages/twisted/_threads/_team.py", line 190, in doWork
+	    task()
+	--- <exception caught here> ---
+	  File "/usr/local/lib/python2.7/dist-packages/twisted/python/threadpool.py", line 250, in inContext
+	    result = inContext.theWork()
+	  File "/usr/local/lib/python2.7/dist-packages/twisted/python/threadpool.py", line 266, in <lambda>
+	    inContext.theWork = lambda: context.call(ctx, func, *args, **kw)
+	  File "/usr/local/lib/python2.7/dist-packages/twisted/python/context.py", line 122, in callWithContext
+	    return self.currentContext().callWithContext(ctx, func, *args, **kw)
+	  File "/usr/local/lib/python2.7/dist-packages/twisted/python/context.py", line 85, in callWithContext
+	    return func(*args,**kw)
+	  File "D:\project\safebox-iptalk\iotservice\src\devices\iptalk\db.py", line 450, in execute
+	    
+	  File "/usr/local/lib/python2.7/dist-packages/peewee.py", line 3281, in __iter__
+	    return iter(self.execute())
+	  File "/usr/local/lib/python2.7/dist-packages/peewee.py", line 3274, in execute
+	    self._qr = ResultWrapper(model_class, self._execute(), query_meta)
+	  File "/usr/local/lib/python2.7/dist-packages/peewee.py", line 2939, in _execute
+	    return self.database.execute_sql(sql, params, self.require_commit)
+	  File "/usr/local/lib/python2.7/dist-packages/playhouse/shortcuts.py", line 218, in execute_sql
+	    self.commit()
+	  File "/usr/local/lib/python2.7/dist-packages/peewee.py", line 3656, in __exit__
+	    reraise(new_type, new_type(*exc_args), traceback)
+	  File "/usr/local/lib/python2.7/dist-packages/playhouse/shortcuts.py", line 216, in execute_sql
+	    cursor.execute(sql, params or ())
+	  File "/usr/local/lib/python2.7/dist-packages/MySQLdb/cursors.py", line 205, in execute
+	    self.errorhandler(self, exc, value)
+	  File "/usr/local/lib/python2.7/dist-packages/MySQLdb/connections.py", line 36, in defaulterrorhandler
+	    raise errorclass, errorvalue
+	peewee.OperationalError: (1054, "Unknown column 't1.CallTimeStamp' in 'field list'")
+	
+2018-03-13 07:05:27+0800 [ERROR] Unhandled error in Deferred:
+2018-03-13 07:05:27+0800 [ERROR] Unhandled Error
+	Traceback (most recent call last):
+	  File "/usr/lib/python2.7/threading.py", line 810, in __bootstrap_inner
+	    self.run()
+	  File "/usr/lib/python2.7/threading.py", line 763, in run
+	    self.__target(*self.__args, **self.__kwargs)
+	  File "/usr/local/lib/python2.7/dist-packages/twisted/_threads/_threadworker.py", line 46, in work
+	    task()
+	  File "/usr/local/lib/python2.7/dist-packages/twisted/_threads/_team.py", line 190, in doWork
+	    task()
+	--- <exception caught here> ---
+	  File "/usr/local/lib/python2.7/dist-packages/twisted/python/threadpool.py", line 250, in inContext
+	    result = inContext.theWork()
+	  File "/usr/local/lib/python2.7/dist-packages/twisted/python/threadpool.py", line 266, in <lambda>
+	    inContext.theWork = lambda: context.call(ctx, func, *args, **kw)
+	  File "/usr/local/lib/python2.7/dist-packages/twisted/python/context.py", line 122, in callWithContext
+	    return self.currentContext().callWithContext(ctx, func, *args, **kw)
+	  File "/usr/local/lib/python2.7/dist-packages/twisted/python/context.py", line 85, in callWithContext
+	    return func(*args,**kw)
+	  File "D:\project\safebox-iptalk\iotservice\src\devices\iptalk\db.py", line 450, in execute
+	    
+	  File "/usr/local/lib/python2.7/dist-packages/peewee.py", line 3281, in __iter__
+	    return iter(self.execute())
+	  File "/usr/local/lib/python2.7/dist-packages/peewee.py", line 3274, in execute
+	    self._qr = ResultWrapper(model_class, self._execute(), query_meta)
+	  File "/usr/local/lib/python2.7/dist-packages/peewee.py", line 2939, in _execute
+	    return self.database.execute_sql(sql, params, self.require_commit)
+	  File "/usr/local/lib/python2.7/dist-packages/playhouse/shortcuts.py", line 218, in execute_sql
+	    self.commit()
+	  File "/usr/local/lib/python2.7/dist-packages/peewee.py", line 3656, in __exit__
+	    reraise(new_type, new_type(*exc_args), traceback)
+	  File "/usr/local/lib/python2.7/dist-packages/playhouse/shortcuts.py", line 216, in execute_sql
+	    cursor.execute(sql, params or ())
+	  File "/usr/local/lib/python2.7/dist-packages/MySQLdb/cursors.py", line 205, in execute
+	    self.errorhandler(self, exc, value)
+	  File "/usr/local/lib/python2.7/dist-packages/MySQLdb/connections.py", line 36, in defaulterrorhandler
+	    raise errorclass, errorvalue
+	peewee.OperationalError: (1054, "Unknown column 't1.CallTimeStamp' in 'field list'")
+	
+2018-03-13 07:05:27+0800 [ERROR] Unhandled error in Deferred:
+2018-03-13 07:05:27+0800 [ERROR] Unhandled Error
+	Traceback (most recent call last):
+	  File "/usr/lib/python2.7/threading.py", line 810, in __bootstrap_inner
+	    self.run()
+	  File "/usr/lib/python2.7/threading.py", line 763, in run
+	    self.__target(*self.__args, **self.__kwargs)
+	  File "/usr/local/lib/python2.7/dist-packages/twisted/_threads/_threadworker.py", line 46, in work
+	    task()
+	  File "/usr/local/lib/python2.7/dist-packages/twisted/_threads/_team.py", line 190, in doWork
+	    task()
+	--- <exception caught here> ---
+	  File "/usr/local/lib/python2.7/dist-packages/twisted/python/threadpool.py", line 250, in inContext
+	    result = inContext.theWork()
+	  File "/usr/local/lib/python2.7/dist-packages/twisted/python/threadpool.py", line 266, in <lambda>
+	    inContext.theWork = lambda: context.call(ctx, func, *args, **kw)
+	  File "/usr/local/lib/python2.7/dist-packages/twisted/python/context.py", line 122, in callWithContext
+	    return self.currentContext().callWithContext(ctx, func, *args, **kw)
+	  File "/usr/local/lib/python2.7/dist-packages/twisted/python/context.py", line 85, in callWithContext
+	    return func(*args,**kw)
+	  File "D:\project\safebox-iptalk\iotservice\src\devices\iptalk\db.py", line 450, in execute
+	    
+	  File "/usr/local/lib/python2.7/dist-packages/peewee.py", line 3281, in __iter__
+	    return iter(self.execute())
+	  File "/usr/local/lib/python2.7/dist-packages/peewee.py", line 3274, in execute
+	    self._qr = ResultWrapper(model_class, self._execute(), query_meta)
+	  File "/usr/local/lib/python2.7/dist-packages/peewee.py", line 2939, in _execute
+	    return self.database.execute_sql(sql, params, self.require_commit)
+	  File "/usr/local/lib/python2.7/dist-packages/playhouse/shortcuts.py", line 218, in execute_sql
+	    self.commit()
+	  File "/usr/local/lib/python2.7/dist-packages/peewee.py", line 3656, in __exit__
+	    reraise(new_type, new_type(*exc_args), traceback)
+	  File "/usr/local/lib/python2.7/dist-packages/playhouse/shortcuts.py", line 216, in execute_sql
+	    cursor.execute(sql, params or ())
+	  File "/usr/local/lib/python2.7/dist-packages/MySQLdb/cursors.py", line 205, in execute
+	    self.errorhandler(self, exc, value)
+	  File "/usr/local/lib/python2.7/dist-packages/MySQLdb/connections.py", line 36, in defaulterrorhandler
+	    raise errorclass, errorvalue
+	peewee.OperationalError: (1054, "Unknown column 't1.CallTimeStamp' in 'field list'")
+	
+2018-03-13 07:05:27+0800 [ERROR] Unhandled error in Deferred:
+2018-03-13 07:05:27+0800 [ERROR] Unhandled Error
+	Traceback (most recent call last):
+	  File "/usr/lib/python2.7/threading.py", line 810, in __bootstrap_inner
+	    self.run()
+	  File "/usr/lib/python2.7/threading.py", line 763, in run
+	    self.__target(*self.__args, **self.__kwargs)
+	  File "/usr/local/lib/python2.7/dist-packages/twisted/_threads/_threadworker.py", line 46, in work
+	    task()
+	  File "/usr/local/lib/python2.7/dist-packages/twisted/_threads/_team.py", line 190, in doWork
+	    task()
+	--- <exception caught here> ---
+	  File "/usr/local/lib/python2.7/dist-packages/twisted/python/threadpool.py", line 250, in inContext
+	    result = inContext.theWork()
+	  File "/usr/local/lib/python2.7/dist-packages/twisted/python/threadpool.py", line 266, in <lambda>
+	    inContext.theWork = lambda: context.call(ctx, func, *args, **kw)
+	  File "/usr/local/lib/python2.7/dist-packages/twisted/python/context.py", line 122, in callWithContext
+	    return self.currentContext().callWithContext(ctx, func, *args, **kw)
+	  File "/usr/local/lib/python2.7/dist-packages/twisted/python/context.py", line 85, in callWithContext
+	    return func(*args,**kw)
+	  File "D:\project\safebox-iptalk\iotservice\src\devices\iptalk\db.py", line 450, in execute
+	    
+	  File "/usr/local/lib/python2.7/dist-packages/peewee.py", line 3281, in __iter__
+	    return iter(self.execute())
+	  File "/usr/local/lib/python2.7/dist-packages/peewee.py", line 3274, in execute
+	    self._qr = ResultWrapper(model_class, self._execute(), query_meta)
+	  File "/usr/local/lib/python2.7/dist-packages/peewee.py", line 2939, in _execute
+	    return self.database.execute_sql(sql, params, self.require_commit)
+	  File "/usr/local/lib/python2.7/dist-packages/playhouse/shortcuts.py", line 218, in execute_sql
+	    self.commit()
+	  File "/usr/local/lib/python2.7/dist-packages/peewee.py", line 3656, in __exit__
+	    reraise(new_type, new_type(*exc_args), traceback)
+	  File "/usr/local/lib/python2.7/dist-packages/playhouse/shortcuts.py", line 216, in execute_sql
+	    cursor.execute(sql, params or ())
+	  File "/usr/local/lib/python2.7/dist-packages/MySQLdb/cursors.py", line 205, in execute
+	    self.errorhandler(self, exc, value)
+	  File "/usr/local/lib/python2.7/dist-packages/MySQLdb/connections.py", line 36, in defaulterrorhandler
+	    raise errorclass, errorvalue
+	peewee.OperationalError: (1054, "Unknown column 't1.CallTimeStamp' in 'field list'")
+	
+2018-03-13 07:05:43+0800 [ERROR] Unhandled error in Deferred:
+2018-03-13 07:05:43+0800 [ERROR] Unhandled Error
+	Traceback (most recent call last):
+	  File "/usr/lib/python2.7/threading.py", line 810, in __bootstrap_inner
+	    self.run()
+	  File "/usr/lib/python2.7/threading.py", line 763, in run
+	    self.__target(*self.__args, **self.__kwargs)
+	  File "/usr/local/lib/python2.7/dist-packages/twisted/_threads/_threadworker.py", line 46, in work
+	    task()
+	  File "/usr/local/lib/python2.7/dist-packages/twisted/_threads/_team.py", line 190, in doWork
+	    task()
+	--- <exception caught here> ---
+	  File "/usr/local/lib/python2.7/dist-packages/twisted/python/threadpool.py", line 250, in inContext
+	    result = inContext.theWork()
+	  File "/usr/local/lib/python2.7/dist-packages/twisted/python/threadpool.py", line 266, in <lambda>
+	    inContext.theWork = lambda: context.call(ctx, func, *args, **kw)
+	  File "/usr/local/lib/python2.7/dist-packages/twisted/python/context.py", line 122, in callWithContext
+	    return self.currentContext().callWithContext(ctx, func, *args, **kw)
+	  File "/usr/local/lib/python2.7/dist-packages/twisted/python/context.py", line 85, in callWithContext
+	    return func(*args,**kw)
+	  File "D:\project\safebox-iptalk\iotservice\src\devices\iptalk\db.py", line 450, in execute
+	    
+	  File "/usr/local/lib/python2.7/dist-packages/peewee.py", line 3281, in __iter__
+	    return iter(self.execute())
+	  File "/usr/local/lib/python2.7/dist-packages/peewee.py", line 3274, in execute
+	    self._qr = ResultWrapper(model_class, self._execute(), query_meta)
+	  File "/usr/local/lib/python2.7/dist-packages/peewee.py", line 2939, in _execute
+	    return self.database.execute_sql(sql, params, self.require_commit)
+	  File "/usr/local/lib/python2.7/dist-packages/playhouse/shortcuts.py", line 218, in execute_sql
+	    self.commit()
+	  File "/usr/local/lib/python2.7/dist-packages/peewee.py", line 3656, in __exit__
+	    reraise(new_type, new_type(*exc_args), traceback)
+	  File "/usr/local/lib/python2.7/dist-packages/playhouse/shortcuts.py", line 216, in execute_sql
+	    cursor.execute(sql, params or ())
+	  File "/usr/local/lib/python2.7/dist-packages/MySQLdb/cursors.py", line 205, in execute
+	    self.errorhandler(self, exc, value)
+	  File "/usr/local/lib/python2.7/dist-packages/MySQLdb/connections.py", line 36, in defaulterrorhandler
+	    raise errorclass, errorvalue
+	peewee.OperationalError: (1054, "Unknown column 't1.CallTimeStamp' in 'field list'")
+	
+2018-03-13 07:06:34+0800 [ERROR] Unhandled error in Deferred:
+2018-03-13 07:06:34+0800 [ERROR] Unhandled Error
+	Traceback (most recent call last):
+	  File "/usr/lib/python2.7/threading.py", line 810, in __bootstrap_inner
+	    self.run()
+	  File "/usr/lib/python2.7/threading.py", line 763, in run
+	    self.__target(*self.__args, **self.__kwargs)
+	  File "/usr/local/lib/python2.7/dist-packages/twisted/_threads/_threadworker.py", line 46, in work
+	    task()
+	  File "/usr/local/lib/python2.7/dist-packages/twisted/_threads/_team.py", line 190, in doWork
+	    task()
+	--- <exception caught here> ---
+	  File "/usr/local/lib/python2.7/dist-packages/twisted/python/threadpool.py", line 250, in inContext
+	    result = inContext.theWork()
+	  File "/usr/local/lib/python2.7/dist-packages/twisted/python/threadpool.py", line 266, in <lambda>
+	    inContext.theWork = lambda: context.call(ctx, func, *args, **kw)
+	  File "/usr/local/lib/python2.7/dist-packages/twisted/python/context.py", line 122, in callWithContext
+	    return self.currentContext().callWithContext(ctx, func, *args, **kw)
+	  File "/usr/local/lib/python2.7/dist-packages/twisted/python/context.py", line 85, in callWithContext
+	    return func(*args,**kw)
+	  File "D:\project\safebox-iptalk\iotservice\src\devices\iptalk\db.py", line 450, in execute
+	    
+	  File "/usr/local/lib/python2.7/dist-packages/peewee.py", line 3281, in __iter__
+	    return iter(self.execute())
+	  File "/usr/local/lib/python2.7/dist-packages/peewee.py", line 3274, in execute
+	    self._qr = ResultWrapper(model_class, self._execute(), query_meta)
+	  File "/usr/local/lib/python2.7/dist-packages/peewee.py", line 2939, in _execute
+	    return self.database.execute_sql(sql, params, self.require_commit)
+	  File "/usr/local/lib/python2.7/dist-packages/playhouse/shortcuts.py", line 218, in execute_sql
+	    self.commit()
+	  File "/usr/local/lib/python2.7/dist-packages/peewee.py", line 3656, in __exit__
+	    reraise(new_type, new_type(*exc_args), traceback)
+	  File "/usr/local/lib/python2.7/dist-packages/playhouse/shortcuts.py", line 216, in execute_sql
+	    cursor.execute(sql, params or ())
+	  File "/usr/local/lib/python2.7/dist-packages/MySQLdb/cursors.py", line 205, in execute
+	    self.errorhandler(self, exc, value)
+	  File "/usr/local/lib/python2.7/dist-packages/MySQLdb/connections.py", line 36, in defaulterrorhandler
+	    raise errorclass, errorvalue
+	peewee.OperationalError: (1054, "Unknown column 't1.CallTimeStamp' in 'field list'")
+	
+2018-03-13 07:08:17+0800 [ERROR] Unhandled error in Deferred:
+2018-03-13 07:08:17+0800 [ERROR] Unhandled Error
+	Traceback (most recent call last):
+	  File "/usr/lib/python2.7/threading.py", line 810, in __bootstrap_inner
+	    self.run()
+	  File "/usr/lib/python2.7/threading.py", line 763, in run
+	    self.__target(*self.__args, **self.__kwargs)
+	  File "/usr/local/lib/python2.7/dist-packages/twisted/_threads/_threadworker.py", line 46, in work
+	    task()
+	  File "/usr/local/lib/python2.7/dist-packages/twisted/_threads/_team.py", line 190, in doWork
+	    task()
+	--- <exception caught here> ---
+	  File "/usr/local/lib/python2.7/dist-packages/twisted/python/threadpool.py", line 250, in inContext
+	    result = inContext.theWork()
+	  File "/usr/local/lib/python2.7/dist-packages/twisted/python/threadpool.py", line 266, in <lambda>
+	    inContext.theWork = lambda: context.call(ctx, func, *args, **kw)
+	  File "/usr/local/lib/python2.7/dist-packages/twisted/python/context.py", line 122, in callWithContext
+	    return self.currentContext().callWithContext(ctx, func, *args, **kw)
+	  File "/usr/local/lib/python2.7/dist-packages/twisted/python/context.py", line 85, in callWithContext
+	    return func(*args,**kw)
+	  File "D:\project\safebox-iptalk\iotservice\src\devices\iptalk\db.py", line 450, in execute
+	    
+	  File "/usr/local/lib/python2.7/dist-packages/peewee.py", line 3281, in __iter__
+	    return iter(self.execute())
+	  File "/usr/local/lib/python2.7/dist-packages/peewee.py", line 3274, in execute
+	    self._qr = ResultWrapper(model_class, self._execute(), query_meta)
+	  File "/usr/local/lib/python2.7/dist-packages/peewee.py", line 2939, in _execute
+	    return self.database.execute_sql(sql, params, self.require_commit)
+	  File "/usr/local/lib/python2.7/dist-packages/playhouse/shortcuts.py", line 218, in execute_sql
+	    self.commit()
+	  File "/usr/local/lib/python2.7/dist-packages/peewee.py", line 3656, in __exit__
+	    reraise(new_type, new_type(*exc_args), traceback)
+	  File "/usr/local/lib/python2.7/dist-packages/playhouse/shortcuts.py", line 216, in execute_sql
+	    cursor.execute(sql, params or ())
+	  File "/usr/local/lib/python2.7/dist-packages/MySQLdb/cursors.py", line 205, in execute
+	    self.errorhandler(self, exc, value)
+	  File "/usr/local/lib/python2.7/dist-packages/MySQLdb/connections.py", line 36, in defaulterrorhandler
+	    raise errorclass, errorvalue
+	peewee.OperationalError: (1054, "Unknown column 't1.CallTimeStamp' in 'field list'")
+	
+2018-03-13 07:08:38+0800 [ERROR] Unhandled error in Deferred:
+2018-03-13 07:08:38+0800 [ERROR] Unhandled Error
+	Traceback (most recent call last):
+	  File "/usr/lib/python2.7/threading.py", line 810, in __bootstrap_inner
+	    self.run()
+	  File "/usr/lib/python2.7/threading.py", line 763, in run
+	    self.__target(*self.__args, **self.__kwargs)
+	  File "/usr/local/lib/python2.7/dist-packages/twisted/_threads/_threadworker.py", line 46, in work
+	    task()
+	  File "/usr/local/lib/python2.7/dist-packages/twisted/_threads/_team.py", line 190, in doWork
+	    task()
+	--- <exception caught here> ---
+	  File "/usr/local/lib/python2.7/dist-packages/twisted/python/threadpool.py", line 250, in inContext
+	    result = inContext.theWork()
+	  File "/usr/local/lib/python2.7/dist-packages/twisted/python/threadpool.py", line 266, in <lambda>
+	    inContext.theWork = lambda: context.call(ctx, func, *args, **kw)
+	  File "/usr/local/lib/python2.7/dist-packages/twisted/python/context.py", line 122, in callWithContext
+	    return self.currentContext().callWithContext(ctx, func, *args, **kw)
+	  File "/usr/local/lib/python2.7/dist-packages/twisted/python/context.py", line 85, in callWithContext
+	    return func(*args,**kw)
+	  File "D:\project\safebox-iptalk\iotservice\src\devices\iptalk\db.py", line 450, in execute
+	    
+	  File "/usr/local/lib/python2.7/dist-packages/peewee.py", line 3281, in __iter__
+	    return iter(self.execute())
+	  File "/usr/local/lib/python2.7/dist-packages/peewee.py", line 3274, in execute
+	    self._qr = ResultWrapper(model_class, self._execute(), query_meta)
+	  File "/usr/local/lib/python2.7/dist-packages/peewee.py", line 2939, in _execute
+	    return self.database.execute_sql(sql, params, self.require_commit)
+	  File "/usr/local/lib/python2.7/dist-packages/playhouse/shortcuts.py", line 218, in execute_sql
+	    self.commit()
+	  File "/usr/local/lib/python2.7/dist-packages/peewee.py", line 3656, in __exit__
+	    reraise(new_type, new_type(*exc_args), traceback)
+	  File "/usr/local/lib/python2.7/dist-packages/playhouse/shortcuts.py", line 216, in execute_sql
+	    cursor.execute(sql, params or ())
+	  File "/usr/local/lib/python2.7/dist-packages/MySQLdb/cursors.py", line 205, in execute
+	    self.errorhandler(self, exc, value)
+	  File "/usr/local/lib/python2.7/dist-packages/MySQLdb/connections.py", line 36, in defaulterrorhandler
+	    raise errorclass, errorvalue
+	peewee.OperationalError: (1054, "Unknown column 't1.CallTimeStamp' in 'field list'")
+	
+2018-03-13 07:09:58+0800 [ERROR] Unhandled error in Deferred:
+2018-03-13 07:09:58+0800 [ERROR] Unhandled Error
+	Traceback (most recent call last):
+	  File "/usr/lib/python2.7/threading.py", line 810, in __bootstrap_inner
+	    self.run()
+	  File "/usr/lib/python2.7/threading.py", line 763, in run
+	    self.__target(*self.__args, **self.__kwargs)
+	  File "/usr/local/lib/python2.7/dist-packages/twisted/_threads/_threadworker.py", line 46, in work
+	    task()
+	  File "/usr/local/lib/python2.7/dist-packages/twisted/_threads/_team.py", line 190, in doWork
+	    task()
+	--- <exception caught here> ---
+	  File "/usr/local/lib/python2.7/dist-packages/twisted/python/threadpool.py", line 250, in inContext
+	    result = inContext.theWork()
+	  File "/usr/local/lib/python2.7/dist-packages/twisted/python/threadpool.py", line 266, in <lambda>
+	    inContext.theWork = lambda: context.call(ctx, func, *args, **kw)
+	  File "/usr/local/lib/python2.7/dist-packages/twisted/python/context.py", line 122, in callWithContext
+	    return self.currentContext().callWithContext(ctx, func, *args, **kw)
+	  File "/usr/local/lib/python2.7/dist-packages/twisted/python/context.py", line 85, in callWithContext
+	    return func(*args,**kw)
+	  File "D:\project\safebox-iptalk\iotservice\src\devices\iptalk\db.py", line 450, in execute
+	    
+	  File "/usr/local/lib/python2.7/dist-packages/peewee.py", line 3281, in __iter__
+	    return iter(self.execute())
+	  File "/usr/local/lib/python2.7/dist-packages/peewee.py", line 3274, in execute
+	    self._qr = ResultWrapper(model_class, self._execute(), query_meta)
+	  File "/usr/local/lib/python2.7/dist-packages/peewee.py", line 2939, in _execute
+	    return self.database.execute_sql(sql, params, self.require_commit)
+	  File "/usr/local/lib/python2.7/dist-packages/playhouse/shortcuts.py", line 218, in execute_sql
+	    self.commit()
+	  File "/usr/local/lib/python2.7/dist-packages/peewee.py", line 3656, in __exit__
+	    reraise(new_type, new_type(*exc_args), traceback)
+	  File "/usr/local/lib/python2.7/dist-packages/playhouse/shortcuts.py", line 216, in execute_sql
+	    cursor.execute(sql, params or ())
+	  File "/usr/local/lib/python2.7/dist-packages/MySQLdb/cursors.py", line 205, in execute
+	    self.errorhandler(self, exc, value)
+	  File "/usr/local/lib/python2.7/dist-packages/MySQLdb/connections.py", line 36, in defaulterrorhandler
+	    raise errorclass, errorvalue
+	peewee.OperationalError: (1054, "Unknown column 't1.CallTimeStamp' in 'field list'")
+	
+2018-03-13 07:09:59+0800 [ERROR] Unhandled error in Deferred:
+2018-03-13 07:09:59+0800 [ERROR] Unhandled Error
+	Traceback (most recent call last):
+	  File "/usr/lib/python2.7/threading.py", line 810, in __bootstrap_inner
+	    self.run()
+	  File "/usr/lib/python2.7/threading.py", line 763, in run
+	    self.__target(*self.__args, **self.__kwargs)
+	  File "/usr/local/lib/python2.7/dist-packages/twisted/_threads/_threadworker.py", line 46, in work
+	    task()
+	  File "/usr/local/lib/python2.7/dist-packages/twisted/_threads/_team.py", line 190, in doWork
+	    task()
+	--- <exception caught here> ---
+	  File "/usr/local/lib/python2.7/dist-packages/twisted/python/threadpool.py", line 250, in inContext
+	    result = inContext.theWork()
+	  File "/usr/local/lib/python2.7/dist-packages/twisted/python/threadpool.py", line 266, in <lambda>
+	    inContext.theWork = lambda: context.call(ctx, func, *args, **kw)
+	  File "/usr/local/lib/python2.7/dist-packages/twisted/python/context.py", line 122, in callWithContext
+	    return self.currentContext().callWithContext(ctx, func, *args, **kw)
+	  File "/usr/local/lib/python2.7/dist-packages/twisted/python/context.py", line 85, in callWithContext
+	    return func(*args,**kw)
+	  File "D:\project\safebox-iptalk\iotservice\src\devices\iptalk\db.py", line 450, in execute
+	    
+	  File "/usr/local/lib/python2.7/dist-packages/peewee.py", line 3281, in __iter__
+	    return iter(self.execute())
+	  File "/usr/local/lib/python2.7/dist-packages/peewee.py", line 3274, in execute
+	    self._qr = ResultWrapper(model_class, self._execute(), query_meta)
+	  File "/usr/local/lib/python2.7/dist-packages/peewee.py", line 2939, in _execute
+	    return self.database.execute_sql(sql, params, self.require_commit)
+	  File "/usr/local/lib/python2.7/dist-packages/playhouse/shortcuts.py", line 218, in execute_sql
+	    self.commit()
+	  File "/usr/local/lib/python2.7/dist-packages/peewee.py", line 3656, in __exit__
+	    reraise(new_type, new_type(*exc_args), traceback)
+	  File "/usr/local/lib/python2.7/dist-packages/playhouse/shortcuts.py", line 216, in execute_sql
+	    cursor.execute(sql, params or ())
+	  File "/usr/local/lib/python2.7/dist-packages/MySQLdb/cursors.py", line 205, in execute
+	    self.errorhandler(self, exc, value)
+	  File "/usr/local/lib/python2.7/dist-packages/MySQLdb/connections.py", line 36, in defaulterrorhandler
+	    raise errorclass, errorvalue
+	peewee.OperationalError: (1054, "Unknown column 't1.CallTimeStamp' in 'field list'")
+	
