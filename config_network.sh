@@ -7,7 +7,7 @@ BKUP=/etc/dhcpcd.conf.bkup
 
 IP="192.168.1.100"
 GATEWAY="192.168.1.1"
-DOMAINS="223.5.5.5 223.6.6.6"
+DOMAINS="114.114.114.114"
 
 while getopts "p:g:d:" arg  # 选项后面的冒号表示该选项需要参数
 do

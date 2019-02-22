@@ -10,7 +10,7 @@ do
   line=${line/%==*/""}
   requirements+=($line)
 done << EOT
-`cat /home/pi/iptalk_resources/requirements.txt`
+`cat ./requirements.txt`
 EOT
 #echo -e requirements "\n\t" ${requirements[@]}
 
@@ -18,10 +18,11 @@ installed=()
 while read line
 do
   #echo $line
-  line=${line/%\(*\)/""}
+  # line=${line/%\(*\)/""}  # old pattern when using old pip
+  line=${line/%\=\=*/""}
   installed+=($line)
 done << EOT
-`pip list --format=legacy`
+`pip list --format=freeze`
 EOT
 #echo -e installed "\n\t" ${installed[@]}
 
